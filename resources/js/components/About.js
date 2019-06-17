@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-export default class Index extends Component {
+export default class About extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="card-body">
                 About
             </div>
         );
     }
-}
-
-if (document.getElementById('app')) {
-    ReactDOM.render(<Index />, document.getElementById('app'));
 }

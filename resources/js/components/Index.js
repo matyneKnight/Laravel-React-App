@@ -11,7 +11,6 @@ export default class Index extends Component {
                     <div className="col-md-8">
                         <div className="card">
                         <Header />
-                            <div className="card-body">I'm an example component!</div>
                         <Footer />
                         </div>
                     </div>
