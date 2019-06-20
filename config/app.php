@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+         Jeylabs\AwsRekognition\ServiceProvider::class,
 
         /*
          * Application Service Providers...

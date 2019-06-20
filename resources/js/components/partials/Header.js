@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Home from './../Home';
 import About from './../About';
 import Agent from './../agent/Index';
+import Visage from './../visage/Index';
 
 export default class Header extends Component {
     render() {
@@ -20,6 +21,9 @@ export default class Header extends Component {
                     <Link className="nav-link" to="/agents">Agents</Link>
                   </li>
                   <li className="nav-item">
+                    <Link className="nav-link" to="/facial_rekognition">Rekognition</Link>
+                  </li>
+                  <li className="nav-item">
                     <Link className="nav-link" to="/about">About</Link>
                   </li>
                 </ul>
@@ -33,6 +37,7 @@ export default class Header extends Component {
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/agents" component={Agent}/>
+            <Route exact path="/facial_rekognition" component={Visage}/>
             </div>
             </Router>
           </div>

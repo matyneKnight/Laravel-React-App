@@ -37,7 +37,14 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $agent = new Agent();
+        $agent->personal_name = $request->personal_name;
+        $agent->code_name = $request->code_name;
+        $agent->section = $request->section;
+        $agent->affect = $request->affect;
+        $agent->status = $request->status;
+
+        $agent->save();
     }
 
     /**
