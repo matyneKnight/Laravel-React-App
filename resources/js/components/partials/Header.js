@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import Home from './../Home';
 import About from './../About';
 import Agent from './../agent/Index';
@@ -9,7 +9,6 @@ export default class Header extends Component {
     render() {
         return (
           <div>
-            <Router>
               <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,7 +38,6 @@ export default class Header extends Component {
             <Route exact path="/agents" component={Agent}/>
             <Route exact path="/facial_rekognition" component={Visage}/>
             </div>
-            </Router>
           </div>
         );
     }

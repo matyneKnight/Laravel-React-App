@@ -2,23 +2,43 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Pagination from 'react-js-pagination';
 
 export default class List extends Component {
 
   constructor(){
     super();
-    this.state = { agents : []}
+    this.state = {
+      agents : [],
+      activePage : 1,
+      itemsCountPerPage : 1,
+      totalItemsCount : 1,
+      pageRangeDisplayed : 3
+    }
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange(pageNumber){
+    axios.get('http://cia_agents.none/api/agents?page='+pageNumber)
+    .then(response => {
+      this.setState({
+        agents : response.data.data,
+        activePage : response.data.current_page,
+        itemsCountPerPage : response.data.per_page,
+        totalItemsCount : response.data.total,
+      });
+    });
   }
 
   componentDidMount(){
-    axios.get('http://cia_agents.none/agents')
+    axios.get('http://cia_agents.none/api/agents')
     .then(response => {
-      this.setState({agents : response.data});
+      this.setState({agents : response.data.data});
     });
   }
 
   onDeleteAgent(agent_id){
-    axios.delete('http://cia_agents.none/agents/delete/'+agent_id)
+    axios.delete('http://cia_agents.none/api/agents/delete/'+agent_id)
     .then(response => {
       var new_agents = this.state.agents;
       for (var i = 0; i < new_agents.length; i++) {
@@ -72,6 +92,17 @@ export default class List extends Component {
                     }
                   </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={this.state.itemsCountPerPage}
+                  totalItemsCount={this.state.totalItemsCount}
+                  pageRangeDisplayed={3}
+                  onChange={this.handlePageChange}
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              </div>
             </div>
         );
     }

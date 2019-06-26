@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import Add from './Add';
 import List from './List';
 import Edit from './Edit';
@@ -9,7 +9,6 @@ export default class Agent extends Component {
     render() {
         return (
             <div className="card-body">
-              <Router>
                 <div>
                   <Link className="btn btn-primary" to="/agents">List</Link>
                   <Link className="btn btn-primary" to="/agents/add">Add</Link>
@@ -18,7 +17,6 @@ export default class Agent extends Component {
                   <Route exact path="/agents/add" component={Add}/>
                   <Route exact path="/agents/edit/:id" component={Edit}/>
                 </div>
-              </Router>
             </div>
         );
     }

@@ -13,7 +13,7 @@ export default class Visage extends Component {
 
 _handleSubmit(e) {
   e.preventDefault();
-  axios.post('http://cia_agents.none/facial_rekognition/enroll',this.state.image)
+  axios.post('http://cia_agents.none/api/facial_rekognition/enroll',this.state.image)
   .then(response => {
       console.log(response.data);
   });

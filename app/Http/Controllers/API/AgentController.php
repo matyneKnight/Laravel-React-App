@@ -15,7 +15,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $result = Agent::all();
+        $result = Agent::paginate(2);
         return $result;
     }
 

@@ -53,7 +53,7 @@ export default class Add extends Component {
       status : this.state.status
     }
 
-    axios.post('http://cia_agents.none/agents/store',agent)
+    axios.post('http://cia_agents.none/api/agents/store',agent)
     .then(response => {
         console.log(response.data);
     });

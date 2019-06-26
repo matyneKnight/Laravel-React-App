@@ -72,14 +72,6 @@ Route::get('/rekognition', function () {
   // resultat : 2 correspondance avec le visage sur ma photo, une dans la photo de classe tc2b et la seconde dans la photo d'amis
 });
 
-Route::get('/', function () {
+Route::get('/{path}', function () {
     return view('welcome');
-});
-
-Route::get('/agents','API\AgentController@index');
-Route::post('/agents/store','API\AgentController@store');
-Route::delete('/agents/delete/{id}','API\AgentController@destroy');
-Route::get('/agents/edit/{id}','API\AgentController@edit');
-Route::put('/agents/update/{id}','API\AgentController@update');
-
-Route::post('/facial_rekognition/enroll','API\VisageController@enroll');
+})->where('path','.*');

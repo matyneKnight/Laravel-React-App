@@ -24,7 +24,7 @@ export default class Edit extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://cia_agents.none/agents/edit/'+this.props.match.params.id)
+    axios.get('http://cia_agents.none/api/agents/edit/'+this.props.match.params.id)
     .then(response => {
       this.setState({agent : response.data});
       console.log(response.data);
@@ -61,7 +61,7 @@ export default class Edit extends Component {
       status : this.state.status
     }
 
-    axios.put('http://cia_agents.none/agents/update'+this.props.match.params.id,agent)
+    axios.put('http://cia_agents.none/api/agents/update'+this.props.match.params.id,agent)
     .then(response => {
         console.log(response.data);
     });
