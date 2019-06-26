@@ -65938,6 +65938,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _partials_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/Header */ "./resources/js/components/partials/Header.js");
 /* harmony import */ var _partials_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/Footer */ "./resources/js/components/partials/Footer.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65955,6 +65956,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -65993,7 +65995,7 @@ function (_Component) {
 
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null)), document.getElementById('app'));
 }
 
 /***/ }),
@@ -66109,7 +66111,7 @@ function (_Component) {
         affect: this.state.affect,
         status: this.state.status
       };
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://cia_agents.none/agents/store', agent).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://cia_agents.none/api/agents/store', agent).then(function (response) {
         console.log(response.data);
       });
     }
@@ -66260,7 +66262,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/agents/edit/' + this.props.match.params.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/api/agents/edit/' + this.props.match.params.id).then(function (response) {
         _this2.setState({
           agent: response.data
         });
@@ -66314,7 +66316,7 @@ function (_Component) {
         affect: this.state.affect,
         status: this.state.status
       };
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.put('http://cia_agents.none/agents/update' + this.props.match.params.id, agent).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.put('http://cia_agents.none/api/agents/update' + this.props.match.params.id, agent).then(function (response) {
         console.log(response.data);
       });
     }
@@ -66453,7 +66455,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary",
         to: "/agents"
       }, "List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -66471,7 +66473,7 @@ function (_Component) {
         exact: true,
         path: "/agents/edit/:id",
         component: _Edit__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }))));
+      })));
     }
   }]);
 
@@ -66541,7 +66543,7 @@ function (_Component) {
       activePage: 1,
       itemsCountPerPage: 1,
       totalItemsCount: 1,
-      pageRangeDisplayed: 1
+      pageRangeDisplayed: 3
     };
     _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -66552,7 +66554,7 @@ function (_Component) {
     value: function handlePageChange(pageNumber) {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/agents?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/api/agents?page=' + pageNumber).then(function (response) {
         _this2.setState({
           agents: response.data.data,
           activePage: response.data.current_page,
@@ -66566,7 +66568,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/agents').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://cia_agents.none/api/agents').then(function (response) {
         _this3.setState({
           agents: response.data.data
         });
@@ -66577,7 +66579,7 @@ function (_Component) {
     value: function onDeleteAgent(agent_id) {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://cia_agents.none/agents/delete/' + agent_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://cia_agents.none/api/agents/delete/' + agent_id).then(function (response) {
         var new_agents = _this4.state.agents;
 
         for (var i = 0; i < new_agents.length; i++) {
@@ -66761,7 +66763,7 @@ function (_Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "navbar navbar-expand-lg navbar-light bg-light"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "collapse navbar-collapse",
@@ -66814,7 +66816,7 @@ function (_Component) {
         exact: true,
         path: "/facial_rekognition",
         component: _visage_Index__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }))));
+      })));
     }
   }]);
 
@@ -66883,7 +66885,7 @@ function (_Component) {
     key: "_handleSubmit",
     value: function _handleSubmit(e) {
       e.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://cia_agents.none/facial_rekognition/enroll', this.state.image).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://cia_agents.none/api/facial_rekognition/enroll', this.state.image).then(function (response) {
         console.log(response.data);
       });
     }
