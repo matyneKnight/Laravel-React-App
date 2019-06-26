@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/agents','API\AgentController@index');
+Route::post('/agents/store','API\AgentController@store');
+Route::delete('/agents/delete/{id}','API\AgentController@destroy');
+Route::get('/agents/edit/{id}','API\AgentController@edit');
+Route::put('/agents/update/{id}','API\AgentController@update');
+Route::post('/facial_rekognition/enroll','API\VisageController@enroll');
