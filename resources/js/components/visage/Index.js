@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 export default class Visage extends Component {
@@ -30,7 +29,7 @@ _handleImageChange(e) {
     render() {
         return (
           <div className="card-body">
-            <form onSubmit={this._handleSubmit}>
+            <form onSubmit={this._handleSubmit} encType="multipart/form-data">
               <div className="form-group">
                 <label for="visage">Visage</label>
                 <input className="form-control-file" onChange={this._handleImageChange} id="visage" name='visage' type="file" accept="image/x-png,image/jpg,image/jpeg"/>

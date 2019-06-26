@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Add from './Add';
 import List from './List';
+import Edit from './Edit';
 
 export default class Agent extends Component {
     render() {
@@ -15,6 +16,7 @@ export default class Agent extends Component {
 
                   <Route exact path="/agents" component={List}/>
                   <Route exact path="/agents/add" component={Add}/>
+                  <Route exact path="/agents/edit/:id" component={Edit}/>
                 </div>
               </Router>
             </div>

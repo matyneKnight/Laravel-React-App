@@ -66,7 +66,8 @@ class AgentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agent = Agent::find($id);
+        return $agent;
     }
 
     /**
@@ -78,7 +79,14 @@ class AgentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $agent = Agent::find($id);
+        $agent->personal_name = $request->personal_name;
+        $agent->code_name = $request->code_name;
+        $agent->section = $request->section;
+        $agent->affect = $request->affect;
+        $agent->status = $request->status;
+
+        $agent->save();
     }
 
     /**
@@ -89,6 +97,7 @@ class AgentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agent = Agent::find($id);
+        $agent->delete();
     }
 }
