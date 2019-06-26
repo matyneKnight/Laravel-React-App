@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Header from './partials/Header'
-import Footer from './partials/Footer'
+import Header from './partials/Header';
+import Footer from './partials/Footer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 export default class Index extends Component {
     render() {
@@ -21,5 +22,5 @@ export default class Index extends Component {
 }
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<Index />, document.getElementById('app'));
+    ReactDOM.render(<Router><Index /></Router>, document.getElementById('app'));
 }
